@@ -1,68 +1,35 @@
 #include<stdio.h>
 int main()
 {
-    int i,n,n1,n2,n3,j,np,sp,d,e;
+    int a=0,b=1,c,n,i;
     scanf("%d",&n);
-    for(i=n;i>=n-100;i--)
+    int arr[100],j=0,x,y;
+    for(i=0;i<n;i++)
     {
-    	n1=0;
-        n2=1;
-    	for(j=1;j<=i-2;j++)
-    	{
-            n3=n1+n2;
-            if(n3==i)
-            {
-                np=n3;
-                d=n-np;
-                break;
-            }
-            else if(n3>i)
-            {
-            	break;
-			}
-            n1=n2;
-            n2=n3;
-        }
-        if(n3==i)
+        arr[i]=a;
+        c=a+b;
+        a=b;
+        b=c;
+    }
+    for(i=0;i<n;i++)
+    {
+        if(arr[i]<=n&&arr[i+1]>=n)
         {
+            x=arr[i];
+            y=arr[i+1];
             break;
         }
     }
-    for(i=n;i<=n+100;i++)
+    if((n-x)>(y-n))
     {
-    	n1=0;
-        n2=1;
-    	for(j=1;j<=i-2;j++)
-    	{
-            n3=n1+n2;
-            if(n3==i)
-            {
-                sp=n3;
-                e=sp-n;
-                break;
-            }
-            else if(n3>i)
-            {
-            	break;
-			}
-            n1=n2;
-            n2=n3;
-        }
-        if(n3==i)
-        {
-            break;
-        }
+        printf("%d",y);
     }
-    if(d<e)
+    else if((n-x)<(y-n))
     {
-    	printf("%d",np);
-	}
-	else if(d>e)
-	{
-		printf("%d",sp);
-	}
-	else
-	{
-		printf("%d %d",np,sp);
-	}
+        printf("%d",x);
+    }
+    else if ((n-x)==(y-n))
+    {
+        printf("%d %d",x,y);
+    }
 }
